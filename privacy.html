@@ -1,270 +1,1890 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Política de Privacidade do Codex Sentinel">
-  <title>Codex Sentinel — Política de Privacidade</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Política de Privacidade do Codex Sentinel">
+<meta name="theme-color" content="#05080d">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Codex Sentinel — Política de Privacidade</title>
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: #0b0f14;
-      color: #dce3ea;
-      line-height: 1.7;
-    }
+<style>
+/* =========================================================
+   CODEX SENTINEL
+   Privacy Policy — Dark Liquid Glass
+   ========================================================= */
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 60px 24px;
-    }
+:root {
+  --bg: #05080d;
+  --bg-soft: #08101a;
 
-    .header {
-      margin-bottom: 45px;
-      padding-bottom: 30px;
-      border-bottom: 1px solid #28313c;
-    }
+  --glass: rgba(12, 22, 36, .54);
+  --glass-strong: rgba(11, 21, 35, .78);
+  --glass-light: rgba(255, 255, 255, .055);
 
-    .brand {
-      font-size: 18px;
-      color: #8b949e;
-      margin-bottom: 8px;
-    }
+  --border: rgba(157, 197, 255, .16);
+  --border-light: rgba(255, 255, 255, .10);
 
-    h1 {
-      color: #ffffff;
-      font-size: 38px;
-      margin: 0 0 10px;
-    }
+  --blue: #3d9cff;
+  --blue-light: #8dc7ff;
+  --blue-soft: rgba(61, 156, 255, .14);
 
-    h2 {
-      color: #ffffff;
-      margin-top: 38px;
-      font-size: 23px;
-    }
+  --text: #f4f7fb;
+  --text-soft: #b8c4d4;
+  --muted: #76869a;
 
-    p, li {
-      color: #c9d1d9;
-    }
+  --radius: 24px;
+  --shadow:
+    0 30px 80px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.055);
+}
 
-    a {
-      color: #58a6ff;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    .updated {
-      color: #8b949e;
-    }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 130px;
+}
 
-    .notice {
-      background: #111820;
-      border: 1px solid #28313c;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 28px 0;
-    }
+body {
+  margin: 0;
+  min-height: 100vh;
 
-    footer {
-      margin-top: 60px;
-      padding-top: 25px;
-      border-top: 1px solid #28313c;
-      color: #8b949e;
-      font-size: 14px;
-    }
-  </style>
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "Segoe UI",
+    sans-serif;
+
+  background:
+    radial-gradient(circle at 82% 12%,
+      rgba(37, 121, 255, .11),
+      transparent 24%),
+
+    radial-gradient(circle at 8% 46%,
+      rgba(22, 103, 211, .07),
+      transparent 25%),
+
+    linear-gradient(
+      145deg,
+      #05080d 0%,
+      #07101a 45%,
+      #03060a 100%
+    );
+
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+
+/* ===== BACKGROUND ATMOSPHERE ===== */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.012) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.009) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+  mask-image:
+    linear-gradient(to bottom, black, transparent 80%);
+}
+
+.ambient {
+  position: fixed;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  filter: blur(130px);
+  opacity: .12;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.ambient.one {
+  background: #087fff;
+  right: -300px;
+  top: 150px;
+}
+
+.ambient.two {
+  background: #125fc4;
+  left: -400px;
+  bottom: -200px;
+}
+
+
+/* =========================================================
+   MACBOOK STYLE NAVBAR
+   ========================================================= */
+
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  padding:
+    max(14px, env(safe-area-inset-top))
+    20px
+    8px;
+}
+
+.navbar {
+  position: relative;
+
+  max-width: 1450px;
+  height: 72px;
+
+  margin: auto;
+  padding: 0 16px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  border: 1px solid rgba(255,255,255,.11);
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.08),
+      rgba(255,255,255,.025) 45%,
+      rgba(56,133,231,.06)
+    ),
+    rgba(7, 13, 22, .68);
+
+  backdrop-filter: blur(28px) saturate(145%);
+  -webkit-backdrop-filter: blur(28px) saturate(145%);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.navbar::after {
+  content: "";
+  position: absolute;
+
+  left: 8%;
+  right: 8%;
+  top: -1px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(118,187,255,.65),
+      transparent
+    );
+
+  opacity: .55;
+}
+
+
+/* macOS dots */
+
+.mac-area {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.mac-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.mac-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.mac-dot.red {
+  background: #ff5f57;
+}
+
+.mac-dot.yellow {
+  background: #febc2e;
+}
+
+.mac-dot.green {
+  background: #28c840;
+}
+
+
+/* Brand */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #fff;
+  font-size: 15px;
+  font-weight: 650;
+  letter-spacing: -.01em;
+  text-decoration: none;
+}
+
+.brand-shield {
+  position: relative;
+
+  width: 31px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  filter:
+    drop-shadow(0 0 12px rgba(57,153,255,.42));
+}
+
+.brand-shield svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* navigation */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 5px;
+
+  border: 1px solid rgba(255,255,255,.055);
+  border-radius: 15px;
+
+  background: rgba(0,0,0,.13);
+}
+
+.navigation a {
+  color: #aebbd0;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  padding: 9px 16px;
+  border-radius: 11px;
+
+  transition: .25s ease;
+}
+
+.navigation a:hover {
+  color: #fff;
+  background: rgba(255,255,255,.055);
+}
+
+.navigation a.active {
+  color: #fff;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(91,170,255,.31),
+      rgba(31,111,216,.16)
+    );
+
+  border: 1px solid rgba(117,184,255,.25);
+
+  box-shadow:
+    0 8px 25px rgba(17,103,210,.16),
+    inset 0 1px 0 rgba(255,255,255,.12);
+}
+
+
+/* right side */
+
+.nav-right {
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+
+  border: 1px solid rgba(255,255,255,.075);
+  border-radius: 999px;
+
+  background: rgba(255,255,255,.035);
+
+  color: #9eacc0;
+  font-size: 12px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+
+  background: #4aabff;
+
+  box-shadow:
+    0 0 12px #268cff;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.page {
+  width: min(1450px, calc(100% - 40px));
+
+  margin: 32px auto 0;
+
+  display: grid;
+  grid-template-columns: 245px minmax(0, 780px) 285px;
+  gap: 42px;
+  align-items: start;
+}
+
+
+/* =========================================================
+   GLASS COMPONENT
+   ========================================================= */
+
+.glass {
+  position: relative;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.018) 45%,
+      rgba(34,109,205,.025)
+    ),
+    var(--glass);
+
+  backdrop-filter: blur(22px) saturate(135%);
+  -webkit-backdrop-filter: blur(22px) saturate(135%);
+
+  box-shadow: var(--shadow);
+}
+
+.glass::before {
+  content: "";
+  position: absolute;
+
+  inset: 0;
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.07),
+      transparent 28%,
+      transparent 70%,
+      rgba(53,147,255,.035)
+    );
+}
+
+
+/* =========================================================
+   LEFT SIDEBAR
+   ========================================================= */
+
+.sidebar {
+  position: sticky;
+  top: 105px;
+
+  padding: 20px 12px 14px;
+}
+
+.sidebar-title {
+  padding: 0 10px 15px;
+
+  color: #e7edf7;
+  font-size: 14px;
+  font-weight: 600;
+
+  border-bottom: 1px solid rgba(255,255,255,.065);
+}
+
+.toc {
+  margin-top: 9px;
+}
+
+.toc a {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 9px 9px;
+
+  color: #8e9eb3;
+  text-decoration: none;
+
+  border-radius: 12px;
+
+  font-size: 12.5px;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+.toc a:hover {
+  color: #fff;
+  background: rgba(255,255,255,.04);
+  transform: translateX(2px);
+}
+
+.toc-number {
+  flex: 0 0 27px;
+
+  width: 27px;
+  height: 27px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(134,181,238,.13);
+
+  background: rgba(69,127,195,.08);
+
+  color: #8497ae;
+  font-size: 10px;
+}
+
+.toc a:hover .toc-number {
+  color: #baddff;
+  border-color: rgba(69,158,255,.3);
+  background: rgba(39,128,230,.12);
+}
+
+
+/* Sidebar card */
+
+.sidebar-message {
+  margin-top: 15px;
+  padding: 16px;
+
+  border-radius: 17px;
+
+  border: 1px solid rgba(117,173,236,.13);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(44,120,210,.09),
+      rgba(255,255,255,.018)
+    );
+}
+
+.mini-icon {
+  width: 38px;
+  height: 38px;
+
+  margin-bottom: 11px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  color: #94c9ff;
+
+  border: 1px solid rgba(92,165,255,.25);
+
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(94,179,255,.27),
+      rgba(30,95,178,.09)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 10px 25px rgba(0,72,170,.12);
+}
+
+.sidebar-message strong {
+  display: block;
+
+  color: #f2f6fc;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.sidebar-message span {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #778aa2;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   MAIN ARTICLE
+   ========================================================= */
+
+.article {
+  min-width: 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 18px;
+
+  color: #87bfff;
+
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+
+  width: 22px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #3c9eff,
+      transparent
+    );
+}
+
+h1 {
+  margin: 0;
+
+  max-width: 680px;
+
+  color: #f7f9fc;
+
+  font-size: clamp(42px, 5vw, 66px);
+  font-weight: 620;
+  letter-spacing: -.055em;
+  line-height: .98;
+}
+
+h1 span {
+  display: block;
+
+  margin-top: 8px;
+
+  color: #9baabd;
+
+  font-weight: 430;
+}
+
+.subtitle {
+  max-width: 650px;
+
+  margin: 24px 0 0;
+
+  color: #95a5ba;
+
+  font-size: 16px;
+}
+
+.updated {
+  margin-top: 13px;
+
+  color: #64758a;
+
+  font-size: 12px;
+}
+
+
+/* Disclaimer */
+
+.disclaimer {
+  margin-top: 30px;
+  padding: 17px 19px;
+
+  display: flex;
+  gap: 15px;
+  align-items: center;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(119,177,245,.17);
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(53,135,231,.075),
+      rgba(255,255,255,.022)
+    );
+
+  color: #c8d3e1;
+  font-size: 13px;
+}
+
+.disclaimer-icon {
+  flex: 0 0 42px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(70,157,255,.18),
+      rgba(19,72,142,.08)
+    );
+
+  border: 1px solid rgba(90,167,255,.22);
+
+  color: #8fc6ff;
+}
+
+
+/* sections */
+
+.policy-section {
+  padding-top: 43px;
+
+  scroll-margin-top: 110px;
+}
+
+.policy-section + .policy-section {
+  margin-top: 38px;
+
+  border-top: 1px solid rgba(129,164,208,.12);
+}
+
+.policy-section h2 {
+  margin: 0 0 15px;
+
+  color: #f1f5fb;
+
+  font-size: 24px;
+  font-weight: 610;
+  letter-spacing: -.025em;
+}
+
+.policy-section p {
+  margin: 0 0 14px;
+
+  color: #aebccc;
+  font-size: 14.5px;
+}
+
+.policy-section strong {
+  color: #e9f1fa;
+}
+
+
+/* list cards */
+
+.data-list {
+  margin: 20px 0 0;
+  padding: 6px 0;
+
+  list-style: none;
+
+  overflow: hidden;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(126,170,224,.12);
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.027),
+      rgba(22,73,132,.035)
+    );
+}
+
+.data-list li {
+  position: relative;
+
+  margin: 0 15px;
+  padding: 11px 12px 11px 43px;
+
+  color: #9eafc2;
+  font-size: 13px;
+
+  border-bottom: 1px solid rgba(255,255,255,.045);
+}
+
+.data-list li:last-child {
+  border-bottom: 0;
+}
+
+.data-list li::before {
+  content: "";
+
+  position: absolute;
+  left: 14px;
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  transform: translateY(-50%) rotate(45deg);
+
+  border-radius: 2px;
+
+  border: 1px solid rgba(98,173,255,.65);
+
+  background: rgba(57,145,247,.14);
+
+  box-shadow:
+    0 0 12px rgba(48,146,255,.14);
+}
+
+
+/* =========================================================
+   RIGHT FEATURE
+   ========================================================= */
+
+.feature {
+  position: sticky;
+  top: 105px;
+
+  overflow: hidden;
+}
+
+.feature-visual {
+  position: relative;
+
+  height: 315px;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  border-radius:
+    24px 24px 0 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(47,138,255,.18),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #091321,
+      #050a11
+    );
+}
+
+.feature-visual::before {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(83,166,255,.08);
+
+  box-shadow:
+    0 0 70px rgba(37,133,255,.08),
+    inset 0 0 70px rgba(40,132,255,.04);
+
+  transform:
+    rotateX(65deg)
+    rotateZ(-12deg);
+}
+
+.feature-visual::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(119,190,255,.10);
+
+  transform:
+    rotateX(65deg)
+    rotateZ(48deg);
+}
+
+
+/* CSS glass shield */
+
+.hero-shield {
+  position: relative;
+
+  width: 145px;
+  height: 175px;
+
+  z-index: 2;
+
+  clip-path:
+    polygon(
+      50% 0%,
+      91% 15%,
+      87% 63%,
+      72% 82%,
+      50% 100%,
+      28% 82%,
+      13% 63%,
+      9% 15%
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(189,225,255,.26),
+      rgba(39,123,220,.07) 43%,
+      rgba(9,36,72,.23)
+    );
+
+  border: 1px solid rgba(166,216,255,.55);
+
+  filter:
+    drop-shadow(0 18px 28px rgba(0,0,0,.32))
+    drop-shadow(0 0 22px rgba(42,137,255,.17));
+}
+
+.hero-shield::before {
+  content: "";
+
+  position: absolute;
+  inset: 8px;
+
+  clip-path: inherit;
+
+  border: 1px solid rgba(177,219,255,.28);
+
+  background:
+    linear-gradient(
+      150deg,
+      rgba(255,255,255,.16),
+      transparent 35%,
+      rgba(35,117,218,.08)
+    );
+}
+
+.hero-shield::after {
+  content: "";
+
+  position: absolute;
+
+  width: 1px;
+  height: 115px;
+
+  left: 50%;
+  top: 22px;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(141,203,255,.65),
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(72,162,255,.5);
+}
+
+
+/* feature text */
+
+.feature-copy {
+  position: relative;
+
+  padding: 25px 26px 27px;
+}
+
+.feature-label {
+  color: #6faeff;
+
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .12em;
+}
+
+.feature-copy h3 {
+  margin: 17px 0 15px;
+
+  max-width: 220px;
+
+  color: #eef5fd;
+
+  font-size: 24px;
+  font-weight: 470;
+  letter-spacing: -.025em;
+  line-height: 1.2;
+}
+
+.feature-line {
+  width: 40px;
+  height: 1px;
+
+  margin: 18px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #49a6ff,
+      transparent
+    );
+}
+
+.feature-copy p {
+  margin: 0;
+
+  color: #8295ac;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact-box {
+  margin-top: 22px;
+  padding: 20px;
+
+  border-radius: 18px;
+
+  border: 1px solid rgba(119,174,237,.14);
+
+  background: rgba(255,255,255,.022);
+}
+
+.contact-box a {
+  color: #84bfff;
+  text-decoration: none;
+}
+
+.contact-box a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+  width: min(1450px, calc(100% - 40px));
+
+  margin: 70px auto 0;
+  padding: 28px 0 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  border-top: 1px solid rgba(255,255,255,.07);
+
+  color: #596a80;
+  font-size: 11px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer a {
+  color: #74859b;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #b6c6da;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1180px) {
+
+  .page {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+
+  .feature {
+    display: none;
+  }
+
+}
+
+@media (max-width: 850px) {
+
+  .navbar {
+    grid-template-columns: 1fr auto;
+  }
+
+  .mac-dots,
+  .status-pill {
+    display: none;
+  }
+
+  .navigation {
+    position: fixed;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform: translateX(-50%);
+
+    z-index: 200;
+
+    padding: 6px;
+
+    border: 1px solid rgba(255,255,255,.13);
+
+    background: rgba(7,13,22,.78);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow:
+      0 18px 50px rgba(0,0,0,.5);
+
+    white-space: nowrap;
+  }
+
+  .navigation a {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .page {
+    width: min(720px, calc(100% - 30px));
+
+    grid-template-columns: 1fr;
+
+    margin-top: 25px;
+  }
+
+  .sidebar {
+    position: relative;
+    top: 0;
+
+    display: none;
+  }
+
+  h1 {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .footer {
+    width: calc(100% - 30px);
+
+    padding-bottom: 95px;
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .nav-wrap {
+    padding: 10px 10px 5px;
+  }
+
+  .navbar {
+    height: 60px;
+    border-radius: 18px;
+  }
+
+  .brand {
+    font-size: 13px;
+  }
+
+  .brand-shield {
+    width: 26px;
+    height: 29px;
+  }
+
+  .article {
+    padding-top: 15px;
+  }
+
+  h1 {
+    letter-spacing: -.045em;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .disclaimer {
+    align-items: flex-start;
+  }
+
+  .policy-section h2 {
+    font-size: 21px;
+  }
+
+  .policy-section p {
+    font-size: 14px;
+  }
+
+  .navigation a:first-child {
+    display: none;
+  }
+
+}
+</style>
 </head>
 
+
 <body>
-  <main class="container">
 
-    <header class="header">
-      <div class="brand">🛡️ CODEX SENTINEL</div>
-      <h1>Política de Privacidade</h1>
-      <div class="updated">Última atualização: 16 de setembro de 2026</div>
-    </header>
+<div class="ambient one"></div>
+<div class="ambient two"></div>
 
-    <div class="notice">
-      O Codex Sentinel é uma ferramenta independente. Não é um produto
-      oficial da OpenAI ou do Telegram e não é afiliado, patrocinado ou
-      endossado por essas empresas.
+
+<!-- =====================================================
+     NAVBAR
+     ===================================================== -->
+
+<div class="nav-wrap">
+
+<nav class="navbar">
+
+  <div class="mac-area">
+
+    <div class="mac-dots" aria-hidden="true">
+      <span class="mac-dot red"></span>
+      <span class="mac-dot yellow"></span>
+      <span class="mac-dot green"></span>
     </div>
 
+    <a class="brand" href="#top">
+
+      <span class="brand-shield">
+
+        <svg viewBox="0 0 40 46"
+             fill="none"
+             xmlns="http://www.w3.org/2000/svg"
+             aria-hidden="true">
+
+          <path
+            d="M20 2L35 7.5V21.5C35 31.2 29.2 38.5 20 44C10.8 38.5 5 31.2 5 21.5V7.5L20 2Z"
+            fill="url(#shieldGradient)"
+            stroke="#8BC6FF"
+            stroke-opacity=".85"
+          />
+
+          <path
+            d="M20 8L29 11.3V21C29 27.1 25.6 32 20 35.8C14.4 32 11 27.1 11 21V11.3L20 8Z"
+            stroke="white"
+            stroke-opacity=".5"
+          />
+
+          <path
+            d="M20 13V29"
+            stroke="#D8EDFF"
+            stroke-width="1.5"
+          />
+
+          <path
+            d="M15 21H25"
+            stroke="#D8EDFF"
+            stroke-width="1.5"
+          />
+
+          <defs>
+            <linearGradient
+              id="shieldGradient"
+              x1="8"
+              y1="3"
+              x2="33"
+              y2="41"
+              gradientUnits="userSpaceOnUse">
+
+              <stop stop-color="#5DB3FF"
+                    stop-opacity=".65"/>
+
+              <stop offset=".5"
+                    stop-color="#126DD1"
+                    stop-opacity=".3"/>
+
+              <stop offset="1"
+                    stop-color="#071A33"
+                    stop-opacity=".75"/>
+
+            </linearGradient>
+          </defs>
+
+        </svg>
+
+      </span>
+
+      Codex Sentinel
+
+    </a>
+
+  </div>
+
+
+  <div class="navigation">
+
+    <a href="#top">Início</a>
+
+    <a href="#top"
+       class="active">
+       Privacy
+    </a>
+
+    <a href="#terms"
+       onclick="return false;"
+       title="Em breve">
+       Terms
+    </a>
+
+    <a href="#contact">
+       Support
+    </a>
+
+  </div>
+
+
+  <div class="nav-right">
+
+    <div class="status-pill">
+
+      <span class="status-dot"></span>
+
+      Privacy Center
+
+    </div>
+
+  </div>
+
+</nav>
+
+</div>
+
+
+<!-- =====================================================
+     PAGE
+     ===================================================== -->
+
+<main class="page" id="top">
+
+
+<!-- LEFT SIDEBAR -->
+
+<aside class="sidebar glass">
+
+  <div class="sidebar-title">
+    Nesta página
+  </div>
+
+  <nav class="toc">
+
+    <a href="#intro">
+      <span class="toc-number">01</span>
+      Introdução
+    </a>
+
+    <a href="#data">
+      <span class="toc-number">02</span>
+      Dados que processamos
+    </a>
+
+    <a href="#third-parties">
+      <span class="toc-number">03</span>
+      Integrações
+    </a>
+
+    <a href="#credentials">
+      <span class="toc-number">04</span>
+      Credenciais
+    </a>
+
+    <a href="#usage">
+      <span class="toc-number">05</span>
+      Como usamos
+    </a>
+
+    <a href="#sharing">
+      <span class="toc-number">06</span>
+      Compartilhamento
+    </a>
+
+    <a href="#retention">
+      <span class="toc-number">07</span>
+      Retenção
+    </a>
+
+    <a href="#security">
+      <span class="toc-number">08</span>
+      Segurança
+    </a>
+
+    <a href="#rights">
+      <span class="toc-number">09</span>
+      Seus direitos
+    </a>
+
+    <a href="#contact">
+      <span class="toc-number">10</span>
+      Contato
+    </a>
+
+  </nav>
+
+
+  <div class="sidebar-message">
+
+    <div class="mini-icon">
+      🔒
+    </div>
+
+    <strong>
+      Privacidade em primeiro lugar.
+    </strong>
+
+    <span>
+      Transparência, segurança e respeito aos seus dados.
+    </span>
+
+  </div>
+
+</aside>
+
+
+<!-- =====================================================
+     ARTICLE
+     ===================================================== -->
+
+<article class="article">
+
+  <div class="eyebrow">
+    Centro de Privacidade
+  </div>
+
+  <h1>
+    Política de
+    <span>Privacidade</span>
+  </h1>
+
+  <p class="subtitle">
+    Transparência sobre como o Codex Sentinel trata
+    informações e protege a experiência de seus usuários.
+  </p>
+
+  <div class="updated">
+    Atualizado em 16 de setembro de 2026
+  </div>
+
+
+  <div class="disclaimer">
+
+    <div class="disclaimer-icon">
+
+      <svg width="22"
+           height="25"
+           viewBox="0 0 40 46"
+           fill="none">
+
+        <path
+          d="M20 2L35 7.5V21.5C35 31.2 29.2 38.5 20 44C10.8 38.5 5 31.2 5 21.5V7.5L20 2Z"
+          stroke="currentColor"
+          stroke-width="2"/>
+
+        <path
+          d="M20 12V29M14.5 20.5H25.5"
+          stroke="currentColor"
+          stroke-width="1.7"/>
+
+      </svg>
+
+    </div>
+
+    <div>
+      O Codex Sentinel é uma ferramenta independente.
+      Não é um produto oficial da OpenAI ou do Telegram
+      e não é afiliado, patrocinado ou endossado por
+      essas empresas.
+    </div>
+
+  </div>
+
+
+  <!-- 1 -->
+
+  <section class="policy-section" id="intro">
+
     <h2>1. Introdução</h2>
+
     <p>
-      Esta Política de Privacidade explica como o Codex Sentinel
-      (“Codex Sentinel”, “serviço” ou “bot”) trata informações quando
-      você utiliza seus recursos.
+      Esta Política de Privacidade explica como o
+      Codex Sentinel (“Codex Sentinel”, “serviço” ou “bot”)
+      trata informações quando você utiliza seus recursos.
     </p>
 
     <p>
-      O Codex Sentinel foi desenvolvido para fornecer notificações,
-      monitoramento, automações e informações relacionadas a fluxos de
-      trabalho com inteligência artificial e outras ferramentas integradas.
+      O Codex Sentinel foi desenvolvido para fornecer
+      notificações, monitoramento, automações e informações
+      relacionadas a fluxos de trabalho com inteligência
+      artificial e outras ferramentas integradas.
     </p>
+
+  </section>
+
+
+  <!-- 2 -->
+
+  <section class="policy-section" id="data">
 
     <h2>2. Informações que podemos processar</h2>
 
     <p>
-      Dependendo das funcionalidades utilizadas, o Codex Sentinel poderá
-      processar informações necessárias para fornecer o serviço, incluindo:
+      Dependendo das funcionalidades utilizadas,
+      o Codex Sentinel poderá processar informações
+      necessárias para fornecer o serviço, incluindo:
     </p>
 
-    <ul>
-      <li>identificadores fornecidos pelo Telegram, como Chat ID e User ID;</li>
-      <li>nome de usuário e informações básicas disponibilizadas pelo Telegram ao bot;</li>
-      <li>comandos e mensagens enviados diretamente ao Codex Sentinel;</li>
-      <li>informações técnicas necessárias para autenticação, segurança e funcionamento;</li>
-      <li>informações relacionadas ao status de tarefas e automações;</li>
-      <li>informações de uso e limites de serviços integrados quando autorizadas pelo usuário;</li>
-      <li>logs técnicos necessários para diagnóstico, segurança e prevenção de abuso.</li>
+    <ul class="data-list">
+
+      <li>
+        Identificadores fornecidos pelo Telegram,
+        como Chat ID e User ID.
+      </li>
+
+      <li>
+        Nome de usuário e informações básicas
+        disponibilizadas pelo Telegram ao bot.
+      </li>
+
+      <li>
+        Comandos e mensagens enviados diretamente
+        ao Codex Sentinel.
+      </li>
+
+      <li>
+        Informações técnicas necessárias para
+        autenticação, segurança e funcionamento.
+      </li>
+
+      <li>
+        Informações relacionadas ao status de
+        tarefas e automações.
+      </li>
+
+      <li>
+        Informações de uso e limites de serviços
+        integrados quando autorizadas pelo usuário.
+      </li>
+
+      <li>
+        Logs técnicos necessários para diagnóstico,
+        segurança e prevenção de abuso.
+      </li>
+
     </ul>
 
-    <p>
-      Procuramos limitar o processamento às informações razoavelmente
-      necessárias para oferecer as funcionalidades solicitadas pelo usuário.
+    <p style="margin-top:18px;">
+      Procuramos limitar o processamento às informações
+      razoavelmente necessárias para oferecer as
+      funcionalidades solicitadas pelo usuário.
     </p>
+
+  </section>
+
+
+  <!-- 3 -->
+
+  <section class="policy-section"
+           id="third-parties">
 
     <h2>3. Integrações com terceiros</h2>
 
     <p>
-      O Codex Sentinel pode interagir com serviços de terceiros, incluindo
-      Telegram e, dependendo das funcionalidades habilitadas pelo usuário,
-      serviços fornecidos pela OpenAI ou outros provedores.
+      O Codex Sentinel pode interagir com serviços de
+      terceiros, incluindo Telegram e, dependendo das
+      funcionalidades habilitadas pelo usuário, serviços
+      fornecidos pela OpenAI ou outros provedores.
     </p>
 
     <p>
-      Esses serviços possuem seus próprios termos e políticas de privacidade.
-      A utilização de uma integração não significa que o Codex Sentinel seja
-      afiliado ou endossado pelo respectivo fornecedor.
+      Esses serviços possuem seus próprios termos e
+      políticas de privacidade.
     </p>
+
+    <p>
+      A utilização de uma integração não significa que
+      o Codex Sentinel seja afiliado, patrocinado ou
+      endossado pelo respectivo fornecedor.
+    </p>
+
+  </section>
+
+
+  <!-- 4 -->
+
+  <section class="policy-section"
+           id="credentials">
 
     <h2>4. Credenciais, tokens e chaves</h2>
 
     <p>
-      Quando uma integração exigir tokens, chaves de API ou outras
-      credenciais, buscamos utilizar métodos destinados a evitar sua
-      exposição desnecessária.
+      Quando uma integração exigir tokens, chaves de API
+      ou outras credenciais, o Codex Sentinel busca utilizar
+      métodos destinados a evitar sua exposição desnecessária.
     </p>
 
     <p>
-      Na versão local do Codex Sentinel, determinadas credenciais,
-      configurações e dados poderão permanecer armazenados no dispositivo
-      do próprio usuário.
+      Na versão local do Codex Sentinel, determinadas
+      credenciais, configurações e dados poderão permanecer
+      armazenados no dispositivo do próprio usuário.
     </p>
 
     <p>
-      Caso futuramente sejam disponibilizados serviços hospedados ou
-      sincronizados, esta Política poderá ser atualizada para refletir
-      essas novas formas de processamento.
+      Caso futuramente sejam disponibilizados serviços
+      hospedados ou sincronizados, esta Política poderá
+      ser atualizada para refletir essas novas formas de
+      processamento.
     </p>
+
+  </section>
+
+
+  <!-- 5 -->
+
+  <section class="policy-section"
+           id="usage">
 
     <h2>5. Como utilizamos as informações</h2>
 
-    <p>As informações poderão ser utilizadas para:</p>
+    <p>
+      As informações poderão ser utilizadas para:
+    </p>
 
-    <ul>
-      <li>fornecer comandos, notificações e automações solicitadas;</li>
-      <li>consultar informações de integrações autorizadas;</li>
-      <li>manter a segurança e prevenir abuso;</li>
-      <li>diagnosticar erros e problemas técnicos;</li>
-      <li>melhorar a estabilidade e o funcionamento do serviço;</li>
-      <li>cumprir obrigações legais aplicáveis.</li>
+    <ul class="data-list">
+
+      <li>
+        Fornecer comandos, notificações e automações
+        solicitadas pelo usuário.
+      </li>
+
+      <li>
+        Consultar informações de integrações autorizadas.
+      </li>
+
+      <li>
+        Manter a segurança e prevenir abuso.
+      </li>
+
+      <li>
+        Diagnosticar erros e problemas técnicos.
+      </li>
+
+      <li>
+        Melhorar a estabilidade e o funcionamento
+        do serviço.
+      </li>
+
+      <li>
+        Cumprir obrigações legais aplicáveis.
+      </li>
+
     </ul>
 
-    <p><strong>O Codex Sentinel não vende informações pessoais dos usuários.</strong></p>
+    <p style="margin-top:18px;">
+      <strong>
+        O Codex Sentinel não vende informações pessoais
+        dos usuários.
+      </strong>
+    </p>
+
+  </section>
+
+
+  <!-- 6 -->
+
+  <section class="policy-section"
+           id="sharing">
 
     <h2>6. Compartilhamento de informações</h2>
 
     <p>
-      Informações poderão ser transmitidas a provedores externos somente
-      quando necessário para executar uma funcionalidade solicitada pelo
-      usuário, operar a infraestrutura necessária ou cumprir uma obrigação
+      Informações poderão ser transmitidas a provedores
+      externos somente quando necessário para executar
+      uma funcionalidade solicitada pelo usuário, operar
+      a infraestrutura necessária ou cumprir uma obrigação
       legal válida.
     </p>
 
     <p>
-      Por exemplo, mensagens enviadas ao bot através do Telegram
-      necessariamente utilizam a infraestrutura do Telegram.
+      Por exemplo, mensagens enviadas ao bot através do
+      Telegram necessariamente utilizam a infraestrutura
+      do Telegram.
     </p>
+
+  </section>
+
+
+  <!-- 7 -->
+
+  <section class="policy-section"
+           id="retention">
 
     <h2>7. Armazenamento e retenção</h2>
 
     <p>
-      O período de retenção depende do tipo de informação e da funcionalidade
-      utilizada. Sempre que possível, as informações serão mantidas somente
-      pelo período necessário para fornecer o serviço, manter sua segurança,
-      solucionar problemas ou atender obrigações legais.
+      O período de retenção depende do tipo de informação
+      e da funcionalidade utilizada.
     </p>
 
     <p>
-      Algumas funcionalidades locais podem armazenar configurações e logs
-      diretamente no dispositivo do usuário.
+      Sempre que possível, as informações serão mantidas
+      somente pelo período necessário para fornecer o
+      serviço, manter sua segurança, solucionar problemas
+      ou atender obrigações legais.
     </p>
+
+    <p>
+      Algumas funcionalidades locais podem armazenar
+      configurações e logs diretamente no dispositivo
+      do usuário.
+    </p>
+
+  </section>
+
+
+  <!-- 8 -->
+
+  <section class="policy-section"
+           id="security">
 
     <h2>8. Segurança</h2>
 
     <p>
-      São adotadas medidas razoáveis destinadas a proteger informações
-      contra acesso, alteração, divulgação ou destruição não autorizados.
-      Entretanto, nenhum sistema conectado à internet pode garantir
-      segurança absoluta.
+      São adotadas medidas razoáveis destinadas a proteger
+      informações contra acesso, alteração, divulgação ou
+      destruição não autorizados.
     </p>
+
+    <p>
+      Entretanto, nenhum sistema conectado à internet
+      pode garantir segurança absoluta.
+    </p>
+
+  </section>
+
+
+  <!-- 9 -->
+
+  <section class="policy-section"
+           id="rights">
 
     <h2>9. Direitos e exclusão de dados</h2>
 
     <p>
-      O usuário poderá solicitar informações sobre seus dados pessoais
-      mantidos pelo Codex Sentinel, bem como solicitar correção ou exclusão
-      quando aplicável.
+      O usuário poderá solicitar informações sobre seus
+      dados pessoais mantidos pelo Codex Sentinel, bem
+      como solicitar correção ou exclusão quando aplicável.
     </p>
 
     <p>
-      Solicitações relacionadas à privacidade podem ser enviadas para:
-      <a href="mailto:ffelicio077@gmail.com">ffelicio077@gmail.com</a>
+      Poderemos solicitar informações suficientes para
+      verificar a legitimidade da solicitação antes de
+      realizar determinadas ações.
     </p>
 
-    <p>
-      Poderemos solicitar informações suficientes para verificar a
-      legitimidade da solicitação antes de realizar determinadas ações.
-    </p>
+  </section>
+
+
+  <!-- 10 -->
+
+  <section class="policy-section"
+           id="children">
 
     <h2>10. Menores de idade</h2>
 
     <p>
-      O Codex Sentinel não é intencionalmente direcionado a crianças e não
-      busca coletar conscientemente informações pessoais de crianças.
+      O Codex Sentinel não é intencionalmente direcionado
+      a crianças e não busca coletar conscientemente
+      informações pessoais de crianças.
     </p>
+
+  </section>
+
+
+  <!-- 11 -->
+
+  <section class="policy-section"
+           id="changes">
 
     <h2>11. Alterações desta Política</h2>
 
     <p>
-      Esta Política poderá ser atualizada conforme o Codex Sentinel introduza
-      novas funcionalidades, integrações ou formas de processamento de dados.
-      Alterações relevantes serão refletidas pela data de atualização
-      apresentada no início desta página.
+      Esta Política poderá ser atualizada conforme o
+      Codex Sentinel introduza novas funcionalidades,
+      integrações ou formas de processamento de dados.
     </p>
+
+    <p>
+      Alterações relevantes serão refletidas pela data
+      de atualização apresentada no início desta página.
+    </p>
+
+  </section>
+
+
+  <!-- 12 -->
+
+  <section class="policy-section"
+           id="contact">
 
     <h2>12. Contato</h2>
 
     <p>
-      Para dúvidas ou solicitações relacionadas à privacidade:
+      Para dúvidas, solicitações de acesso, correção,
+      exclusão ou outras questões relacionadas à
+      privacidade, entre em contato conosco.
     </p>
+
+    <div class="contact-box">
+
+      <strong>Codex Sentinel</strong>
+
+      <p style="margin:7px 0 0;">
+        E-mail:
+        <a href="mailto:ffelicio077@gmail.com">
+          ffelicio077@gmail.com
+        </a>
+      </p>
+
+    </div>
+
+  </section>
+
+</article>
+
+
+<!-- =====================================================
+     RIGHT FEATURE CARD
+     ===================================================== -->
+
+<aside class="feature glass">
+
+  <div class="feature-visual">
+
+    <div class="hero-shield"
+         aria-hidden="true">
+    </div>
+
+  </div>
+
+  <div class="feature-copy">
+
+    <div class="feature-label">
+      CODEX SENTINEL
+    </div>
+
+    <h3>
+      Mais controle para o que realmente importa.
+    </h3>
+
+    <div class="feature-line"></div>
 
     <p>
-      <strong>Codex Sentinel</strong><br>
-      E-mail:
-      <a href="mailto:ffelicio077@gmail.com">ffelicio077@gmail.com</a>
+      Segurança, transparência e tecnologia
+      a serviço das pessoas.
     </p>
 
-    <footer>
-      © 2026 Codex Sentinel. Projeto independente.
-    </footer>
+  </div>
 
-  </main>
+</aside>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="footer">
+
+  <div>
+    © 2026 Codex Sentinel · Projeto independente
+  </div>
+
+  <div class="footer-links">
+
+    <a href="#top">
+      Privacy
+    </a>
+
+    <a href="#"
+       onclick="return false;"
+       title="Em breve">
+      Terms
+    </a>
+
+    <a href="mailto:ffelicio077@gmail.com">
+      Support
+    </a>
+
+  </div>
+
+</footer>
+
+
 </body>
 </html>
